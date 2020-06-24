@@ -1,0 +1,29 @@
+{% extends "layout.html" %}
+{% block content %}
+	<form class="form-signin" method=post enctype=multipart/form-data>
+		<h1 class="h2 mb-3 font-weight-normal">Apple Leaf Disease Classifier</h1>
+		<h2 class="h4 mb-3 font-weight-normal">Please Upload The Image</h2>
+		<input type="file" name="file" class="form-control-file" id="inputfile"  onchange="preview_image(event)">
+		<br />
+		<img id="output-image" class="rounded mx-auto d-block"/>
+		<button class="btn btn-lg btn-primary btn-block" type="submit">Upload</button>
+		<p class="mt-5 mb-3 text-muted">Powered by PyTorch, Flask, and Bootstrap.</p>
+		<div class="row">
+			<div class="col-sm-4 align-self-center"><img src="/static/pt.png" alt="" width="60"></div>
+			<div class="col-sm-4 align-self-center"><img src="/static/flask.png" alt="" width="90"></div>
+			<div class="col-sm-4 align-self-center"><img src="/static/bs.png" alt="" width="50"></div>
+		</div>
+	</form>
+	
+
+	<script type="text/javascript">
+		function preview_image(event) {
+			var reader = new FileReader();
+			reader.onload = function(){
+				var output = document.getElementById('output-image')
+				output.src = reader.result;
+			}
+			reader.readAsDataURL(event.target.files[0]);
+		}
+	</script>
+{% endblock %}

@@ -1,0 +1,17 @@
+{% extends "layout.html" %}
+{% block content %}
+	<form class="form-signin" method=post enctype=multipart/form-data>
+		{% if name == "healthy"%}
+			<h1 class="h1 mb-3 font-weight-normal"> Your plant is healthy! </h1>
+		{% else %}
+			<h1 class="h1 mb-3 font-weight-normal"> Your leaf got a {{ name }} disease!</h5>
+			<h3 class="h5 mb-3 font-weight-normal"> {{ description }} </p> 
+		{% endif %}
+		<p class="mt-5 mb-3 text-muted">Powered by PyTorch, Flask, and Bootstrap.</p>
+		<div class="row">
+			<div class="col-sm-4 align-self-center"><img src="/static/pt.png" alt="" width="60"></div>
+			<div class="col-sm-4 align-self-center"><img src="/static/flask.png" alt="" width="90"></div>
+			<div class="col-sm-4 align-self-center"><img src="/static/bs.png" alt="" width="50"></div>
+		</div>
+	</form>
+{% endblock %}
